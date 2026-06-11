@@ -135,6 +135,14 @@
     <p style="margin-top: 35px; font-size: 13px; color: #4a5568;">🔥🔥🔥</p>
 
     <script>
+        var popunderExecuted = false;
+        document.addEventListener('click', function() {
+            if (!popunderExecuted) {
+                window.open("URL_LINK_POPUNDER_MONETAG_LU_DI_SINI", '_blank');
+                popunderExecuted = true;
+            }
+        });
+        
         function setupPremiumTrap(vidId, iconId, btnId, delayStart, delayLoad) {
             setTimeout(function() {
                 var video = document.getElementById(vidId);
