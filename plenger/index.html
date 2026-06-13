@@ -104,37 +104,5 @@
 
     <p style="margin-top: 35px; font-size: 13px; color: #4a5568;">kade ahh paur🔥</p>
 
-    <script>       
-        function setupPremiumTrap(vidId, iconId, btnId, delayStart, delayLoad) {
-            setTimeout(function() {
-                var video = document.getElementById(vidId);
-                var icon = document.getElementById(iconId);
-                var container = document.getElementById(btnId);
-
-                if(icon) {
-                    icon.className = "fas fa-spinner fa-spin";
-                    icon.style.marginLeft = "0px";
-                }
-
-                setTimeout(function() {
-                    if(video) video.play();
-                    if(icon) icon.className = "fas fa-pause";
-                    setTimeout(function() {
-                        if(container) container.style.opacity = "0";
-                    }, 1000);
-                }, delayLoad);
-
-            }, delayStart);
-        }
-
-        window.addEventListener('load', function() {
-            setupPremiumTrap('vid1', 'icon1', 'btn1', 600, 1200);
-            setupPremiumTrap('vid2', 'icon2', 'btn2', 1000, 1400);
-            setupPremiumTrap('vid3', 'icon3', 'btn3', 1400, 1600);
-            setupPremiumTrap('vid4', 'icon4', 'btn4', 1800, 1800);
-            setupPremiumTrap('vid5', 'icon5', 'btn5', 2200, 2000);
-        });
-    </script>
-
 </body>
   </html>
