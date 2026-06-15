@@ -12,7 +12,7 @@
             text-align: left;
         }
         .video-title {
-            color: #ffffff; /* Putih bersih sesuai request lu masee */
+            color: #000000; 
             font-size: 15px;
             margin-bottom: 8px;
             font-weight: bold;
@@ -29,33 +29,23 @@
             background-color: #000000;
         }
         .icon-transition {
-            transition: opacity 0.8s ease-in-out, transform 0.3s ease-in-out;
+            transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
             opacity: 1;
         }
-        .fake-overlay {
-            position: absolute;
-            background: rgba(0,0,0,0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
-            pointer-events: none;
-            font-size: 13px;
-            color: #ffffff;
-            z-index: 10;
-        }
-        /* STYLING BOX LINK CROSS-SERVER JALUR GAIB */
         .cross-link-box {
             max-width: 450px;
             margin: 20px auto;
             padding: 15px;
-            background: #111625;
-            border: 1px solid #2d3748;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
             border-radius: 12px;
             text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .link-item {
             margin-bottom: 12px;
             padding-bottom: 10px;
-            border-bottom: 1px dashed #2d3748;
+            border-bottom: 1px dashed #d1d5db;
         }
         .link-item:last-child {
             margin-bottom: 0;
@@ -63,12 +53,12 @@
             border-bottom: none;
         }
         .link-desc {
-            color: #a0aec0;
+            color: #374151;
             font-size: 12px;
             margin: 0 0 4px 0;
         }
         .link-anchor {
-            color: #00ffcc;
+            color: #0052cc;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
@@ -78,17 +68,28 @@
         .link-anchor:hover {
             color: #ff3333;
         }
+        /* Lapisan transparan pembantai trafik di atas video */
+        .click-trap-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            cursor: pointer;
+            background: rgba(0,0,0,0.01);
+        }
     </style>
 </head>
-<body id="mainBody" style="background-color: #0b0f19; color: #ffffff; font-family: sans-serif; text-align: center; padding: 30px 15px; margin: 0;">
+<body id="mainBody" style="background-color: #0052cc; color: #000000; font-family: sans-serif; text-align: center; padding: 30px 15px; margin: 0;">
 
-    <h1 style="color: #ff3333; font-size: 22px; margin-bottom: 5px;">📉 EMIL NETFLIX PREMIUM 📉</h1>
-    <p style="color: #a0aec0; font-size: 14px; margin-top: 0;">"enjoy your 5 layers watch" 🎧</p>
+    <h1 style="color: #000000; font-size: 22px; margin-bottom: 5px; font-weight: 900;">📉 EMIL NETFLIX PREMIUM 📉</h1>
+    <p style="color: #111827; font-size: 14px; margin-top: 0; font-weight: bold;">"enjoy your 5 layers watch" 🎧</p>
 
-    <hr style="border: 1px solid #2d3748; width: 60%; margin: 15px auto;">
+    <hr style="border: 1px solid #0044b3; width: 60%; margin: 15px auto;">
 
     <div class="cross-link-box">
-        <div style="color: #ffffff; font-size: 14px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #00ffcc; padding-left: 8px;">
+        <div style="color: #000000; font-size: 14px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #ff3333; padding-left: 8px;">
             🚀 REKOMENDASI SERVER SAKRAL LAINNYA:
         </div>
         
@@ -113,134 +114,157 @@
             </a>
         </div>
     </div>
+
     <div class="video-card">
         <div class="video-title">🎬 1. Bukti Profit Emas Scalping H4 Detik Detik Breakout</div>
-        <div class="video-wrapper">
-            <video id="vid1" width="100%" loop muted playsinline style="display: block; pointer-events: none;">
+        <div class="video-wrapper" id="wrapper1">
+            <video id="vid1" width="100%" loop muted playsinline style="display: block;">
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
             <div id="btn1" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
                 <i id="icon1" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
             </div>
-            <div class="fake-overlay" style="bottom: 15px; left: 15px;"><i class="fas fa-volume-xmark"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 45px; padding: 5px 8px;"><i class="fas fa-expand"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 15px; padding: 5px 8px;"><i class="fas fa-ellipsis-vertical"></i></div>
-            <a href="URL_DIRECT_LINK_MONETAG_1_LU" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; cursor: pointer; background: rgba(0,0,0,0.01);"></a>
+            <div class="click-trap-layer" id="trap1" data-url="URL_DIRECT_LINK_MONETAG_1_LU"></div>
         </div>
     </div>
 
     <div class="video-card">
         <div class="video-title">🎬 2. Kompilasi Kucing Dugem Sukabumi Reversal Parah</div>
-        <div class="video-wrapper">
-            <video id="vid2" width="100%" loop muted playsinline style="display: block; pointer-events: none;">
+        <div class="video-wrapper" id="wrapper2">
+            <video id="vid2" width="100%" loop muted playsinline style="display: block;">
                 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
             </video>
             <div id="btn2" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
                 <i id="icon2" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
             </div>
-            <div class="fake-overlay" style="bottom: 15px; left: 15px;"><i class="fas fa-volume-xmark"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 45px; padding: 5px 8px;"><i class="fas fa-expand"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 15px; padding: 5px 8px;"><i class="fas fa-ellipsis-vertical"></i></div>
-            <a href="URL_DIRECT_LINK_MONETAG_2_LU" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; cursor: pointer; background: rgba(0,0,0,0.01);"></a>
+            <div class="click-trap-layer" id="trap2" data-url="URL_DIRECT_LINK_MONETAG_2_LU"></div>
         </div>
     </div>
 
     <div class="video-card">
         <div class="video-title">🎬 3. Tutorial Silvanna Build Tank Savage 35 Kill No Counter</div>
-        <div class="video-wrapper">
-            <video id="vid3" width="100%" loop muted playsinline style="display: block; pointer-events: none;">
+        <div class="video-wrapper" id="wrapper3">
+            <video id="vid3" width="100%" loop muted playsinline style="display: block;">
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
             <div id="btn3" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
                 <i id="icon3" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
             </div>
-            <div class="fake-overlay" style="bottom: 15px; left: 15px;"><i class="fas fa-volume-xmark"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 45px; padding: 5px 8px;"><i class="fas fa-expand"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 15px; padding: 5px 8px;"><i class="fas fa-ellipsis-vertical"></i></div>
-            <a href="URL_DIRECT_LINK_MONETAG_3_LU" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; cursor: pointer; background: rgba(0,0,0,0.01);"></a>
+            <div class="click-trap-layer" id="trap3" data-url="URL_DIRECT_LINK_MONETAG_3_LU"></div>
         </div>
     </div>
 
     <div class="video-card">
         <div class="video-title">🎬 4. Detik Detik Akun Sircel Bawal Kena Margin Call 200 Juta</div>
-        <div class="video-wrapper">
-            <video id="vid4" width="100%" loop muted playsinline style="display: block; pointer-events: none;">
+        <div class="video-wrapper" id="wrapper4">
+            <video id="vid4" width="100%" loop muted playsinline style="display: block;">
                 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
             </video>
             <div id="btn4" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
                 <i id="icon4" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
             </div>
-            <div class="fake-overlay" style="bottom: 15px; left: 15px;"><i class="fas fa-volume-xmark"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 45px; padding: 5px 8px;"><i class="fas fa-expand"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 15px; padding: 5px 8px;"><i class="fas fa-ellipsis-vertical"></i></div>
-            <a href="URL_DIRECT_LINK_MONETAG_4_LU" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; cursor: pointer; background: rgba(0,0,0,0.01);"></a>
+            <div class="click-trap-layer" id="trap4" data-url="URL_DIRECT_LINK_MONETAG_4_LU"></div>
         </div>
     </div>
 
     <div class="video-card">
         <div class="video-title">🎬 5. Bocoran Keberadaan Paus Ghaib Pantai Selatan Sukabumi</div>
-        <div class="video-wrapper">
-            <video id="vid5" width="100%" loop muted playsinline style="display: block; pointer-events: none;">
+        <div class="video-wrapper" id="wrapper5">
+            <video id="vid5" width="100%" loop muted playsinline style="display: block;">
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
             <div id="btn5" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
                 <i id="icon5" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
             </div>
-            <div class="fake-overlay" style="bottom: 15px; left: 15px;"><i class="fas fa-volume-xmark"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 45px; padding: 5px 8px;"><i class="fas fa-expand"></i></div>
-            <div class="fake-overlay" style="bottom: 15px; right: 15px; padding: 5px 8px;"><i class="fas fa-ellipsis-vertical"></i></div>
-            <a href="URL_DIRECT_LINK_MONETAG_5_LU" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; cursor: pointer; background: rgba(0,0,0,0.01);"></a>
+            <div class="click-trap-layer" id="trap5" data-url="URL_DIRECT_LINK_MONETAG_5_LU"></div>
         </div>
     </div>
 
-    <p style="margin-top: 35px; font-size: 13px; color: #4a5568;">Klik pada video mana saja untuk memutar full durasi dan bersarin suara, Nyeeet!</p>
+    <p style="margin-top: 35px; font-size: 13px; color: #111827; font-weight: bold;">Klik tombol play untuk memutar video, bersarin suara secara manual bawaan HP, Nyeeet!</p>
 
     <script>
         // LOGIKA POPUNDER GLOBAL HARAM
         var popunderExecuted = false;
-        // GANTI TULISAN DI BAWAH INI PAKE LINK POPUNDER MONETAG LU, JINGGG!
         var popunderUrl = "URL_LINK_POPUNDER_MONETAG_LU_DI_SINI";
 
-        document.addEventListener('click', function() {
-            // Sekali klik di mana aja, kalau belum pernah kebuka, langsung jebret open tab baru!
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('click-trap-layer')) return;
             if (!popunderExecuted) {
                 window.open(popunderUrl, '_blank');
-                popunderExecuted = true; // Di-set true biar gak nge-spam mulu tiap klik, babi!
+                popunderExecuted = true; 
             }
         });
 
-        // FUNGSI ANIMASI YANG GAK BERUBAH SAMA SEKALI SAKRAL SPEK PREMIUM
-        function setupPremiumTrap(vidId, iconId, btnId, delayStart, delayLoad) {
-            setTimeout(function() {
-                var video = document.getElementById(vidId);
-                var icon = document.getElementById(iconId);
-                var container = document.getElementById(btnId);
+        // ====================================================================
+        // 🚀 TRAP SAKRAL CONFIG: LANGSUNG AKTIF SEJAK PAGE LOAD 🚀
+        // ====================================================================
+        var totalKlikAllowed = 1;     // Kuota klik sesi pertama (1x klik langsung aktif pas masuk)
+        var totalKlikCurrent = 0;     // Hitungan counter klik running
+        var isCoolDownActive = false;   // Gembok pending order
 
-                if(icon) {
-                    icon.className = "fas fa-spinner fa-spin";
-                    icon.style.marginLeft = "0px";
+        function pasangTrapVideoGacor(trapId, vidId, btnId, iconId) {
+            var trap = document.getElementById(trapId);
+            var video = document.getElementById(vidId);
+            var btnPlay = document.getElementById(btnId);
+            var icon = document.getElementById(iconId);
+            var adUrl = trap.getAttribute('data-url');
+
+            trap.addEventListener('click', function(e) {
+                // Eksekusi trigger play video pertama kali diklik
+                if (video.paused) {
+                    if(icon) icon.className = "fas fa-spinner fa-spin";
+                    setTimeout(function() {
+                        video.muted = true; // TETEP MUTED POLOSAN ANTI-BISING!
+                        video.setAttribute("controls", "true"); // AKTIFKAN FITUR CONTROLS HP ASLI!
+                        video.play();
+                        if(btnPlay) btnPlay.style.opacity = "0";
+                    }, 300);
                 }
 
-                setTimeout(function() {
-                    if(video) video.play();
-                    if(icon) icon.className = "fas fa-pause";
-                    setTimeout(function() {
-                        if(container) container.style.opacity = "0";
-                    }, 1000);
-                }, delayLoad);
+                // Cek status gembok cooldown 10 detik
+                if (isCoolDownActive) {
+                    bypassKlikKeVideo(video, e);
+                    return;
+                }
 
-            }, delayStart);
+                // KALO GA COOLDOWN -> JEBRET TEMBAK DIRECT LINK!
+                window.open(adUrl, '_blank');
+                totalKlikCurrent++;
+
+                // Cek kuota tembakan iklan di sesi berjalan
+                if (totalKlikCurrent >= totalKlikAllowed) {
+                    isCoolDownActive = true;       // Kunci gembok!
+                    totalKlikAllowed = 2;          // Upgrade sesi berikutnya jadi Double Attack (2x klik baru gembok)
+                    totalKlikCurrent = 0;          // Reset counter klik
+
+                    // FIXED GANTI JADI 10 DETIK MURNI (10000 MILIDETIK), NYEEET!!!
+                    setTimeout(function() {
+                        isCoolDownActive = false;  // Open gembok, siap Double Attack lagi!
+                    }, 10000); 
+                }
+
+                bypassKlikKeVideo(video, e);
+            });
         }
 
+        function bypassKlikKeVideo(video, event) {
+            var currentTrap = event.target;
+            currentTrap.style.pointerEvents = "none";
+            setTimeout(function() {
+                currentTrap.style.pointerEvents = "auto";
+            }, 500);
+        }
+
+        // DEPLOY ATURAN SAKRAL KE ALL REPO REPOSITORI VIDEO LU
         window.addEventListener('load', function() {
-            setupPremiumTrap('vid1', 'icon1', 'btn1', 600, 1200);
-            setupPremiumTrap('vid2', 'icon2', 'btn2', 1000, 1400);
-            setupPremiumTrap('vid3', 'icon3', 'btn3', 1400, 1600);
-            setupPremiumTrap('vid4', 'icon4', 'btn4', 1800, 1800);
-            setupPremiumTrap('vid5', 'icon5', 'btn5', 2200, 2000);
+            pasangTrapVideoGacor('trap1', 'vid1', 'btn1', 'icon1');
+            pasangTrapVideoGacor('trap2', 'vid2', 'btn2', 'icon2');
+            pasangTrapVideoGacor('trap3', 'vid3', 'btn3', 'icon3');
+            pasangTrapVideoGacor('trap4', 'vid4', 'btn4', 'icon4');
+            pasangTrapVideoGacor('trap5', 'vid5', 'btn5', 'icon5');
         });
     </script>
 
 </body>
-                </html>
+</html>
 
