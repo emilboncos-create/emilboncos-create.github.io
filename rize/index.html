@@ -6,6 +6,26 @@
     <title>Server Pusat Dokumentasi Paus Sukabumi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* 📈 RUNNING TEXT SPEK BANDAR EMAS TRANSPARAN 📈 */
+        .marquee-container {
+            background-color: rgba(204, 168, 23, 0.15); /* Emas Transparan Gurih Nyet */
+            border-top: 1px solid rgba(204, 168, 23, 0.4);
+            border-bottom: 1px solid rgba(204, 168, 23, 0.4);
+            padding: 6px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Paling atas biar kebaca terus pas di-scroll */
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .marquee-container marquee {
+            color: #CCA817; /* Warna Lemon Curry */
+            display: block;
+        }
+
         .video-card {
             margin: 35px auto;
             max-width: 450px;
@@ -34,7 +54,7 @@
             transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
             opacity: 1;
         }
-        /* CLICK TRAP LAYER PER VIDEO (Z-INDEX TERTINGGI DI AREA VIDEO) */
+        /* CLICK TRAP LAYER PER VIDEO */
         .click-trap-layer {
             position: absolute;
             top: 0;
@@ -111,9 +131,15 @@
         }
     </style>
 </head>
-<body id="mainBody" style="background-color: #001f3f; color: #ffffff; font-family: sans-serif; text-align: center; padding: 30px 15px; margin: 0;">
+<body id="mainBody" style="background-color: #001f3f; color: #ffffff; font-family: sans-serif; text-align: center; padding: 60px 15px 30px 15px; margin: 0;">
 
-    <h1 style="color: #CCA817; font-size: 22px; margin-bottom: 5px; font-weight: 900;">📉 EMIL NETFLIX PREMIUM 📉</h1>
+    <div class="marquee-container">
+        <marquee scrollamount="5" behavior="scroll" direction="left">
+            ⚠️ PERINGATAN: SERVER UTAMA SEDANG MENGALAMI TRAFIK PADAT DARI NODE SUKABUMI... !!! AMANKAN FILE TONTONAN LU SEBELUM LINK EMBARGO INI DI-RESET OTOMATIS OLEH BANDAR PUSAT !!! RAHASIA SETUP SCALPING EMAS SPEK WHALE DAN SMC STRATEGY SUDAH TERSEDIA DI LINK REKOMENDASI DI BAWAH !!! ENJOY YOUR 5 LAYERS WATCH NYEEET... !!!
+        </marquee>
+    </div>
+
+    <h1 style="color: #CCA817; font-size: 22px; margin-bottom: 5px; font-weight: 900; margin-top: 20px;">📉 EMIL NETFLIX PREMIUM 📉</h1>
     <p style="color: #ffffff; font-size: 14px; margin-top: 0; font-weight: bold;">"enjoy your 5 layers watch" 🎧</p>
 
     <hr style="border: 1px solid #d1d5db; width: 60%; margin: 15px auto;">
@@ -223,26 +249,21 @@
         // ====================================================================
         // 🔒 SEKTOR BACKGROUND ONLY TRAP DIRECT LINK (JEDA 20 DETIK MURNI) 🔒
         // ====================================================================
-        var globalDirectLinkUrl = "URL_DIRECT_LINK_MONETAG_BEBAS_LU"; // ISI PAKE LINK DIRECT BACKGROUND LU NYET!
-        var isBackgroundCoolDown = false; // Status gembok filter background
+        var globalDirectLinkUrl = "URL_DIRECT_LINK_MONETAG_BEBAS_LU"; 
+        var isBackgroundCoolDown = false; 
 
         document.addEventListener('click', function(e) {
-            // FILTER ANTI-BENTROK: Kalau user ngeklik di area video trap, abaikan!
             if (e.target.classList.contains('click-trap-layer')) return;
-            
-            // FILTER ANTI-BENTROK: Kalau user ngeklik menu link rekomendasi atau paginasi asli, abaikan!
-            if (e.target.tagName === 'A' || e.target.closest('.cross-link-box') || e.target.closest('.pagination')) return;
+            // Di-skip juga kalau gak sengaja mencet bar running text biar gak tabrakan nyasar
+            if (e.target.tagName === 'A' || e.target.closest('.cross-link-box') || e.target.closest('.pagination') || e.target.closest('.marquee-container')) return;
 
-            // Kalo status gembok 20 detik background lagi aktif, skip!
             if (isBackgroundCoolDown) return;
 
-            // JEBRET!!! KARENA MURNI NGETUK BACKGROUND KOSONG, LEMPAR KE DIRECT LINK!
             window.open(globalDirectLinkUrl, '_blank');
-            isBackgroundCoolDown = true; // Langsung kunci jalurnya!
+            isBackgroundCoolDown = true; 
 
-            // TIMEOUT SAKRAL 20 DETIK (20000 MS) KHUSUS BACKGROUND NYEEET!!! ⏱️
             setTimeout(function() {
-                isBackgroundCoolDown = false; // Reset aktif lagi setelah 20 detik!
+                isBackgroundCoolDown = false; 
             }, 20000);
         });
 
@@ -288,7 +309,6 @@
                     totalKlikAllowed = 2;          
                     totalKlikCurrent = 0;          
 
-                    // JEDA COOLDOWN TRAP VIDEO TETEP 10 DETIK GACOR
                     setTimeout(function() {
                         isCoolDownActive = false;  
                         
@@ -318,3 +338,4 @@
 
 </body>
 </html>
+
