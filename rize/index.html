@@ -10,6 +10,7 @@
             margin: 35px auto;
             max-width: 450px;
             text-align: left;
+            position: relative;
         }
         /* VIDEO TITLE COLOR -> LEMON CURRY */
         .video-title {
@@ -33,7 +34,7 @@
             transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
             opacity: 1;
         }
-        /* CLICK TRAP LAYER */
+        /* CLICK TRAP LAYER PER VIDEO (Z-INDEX TERTINGGI DI AREA VIDEO) */
         .click-trap-layer {
             position: absolute;
             top: 0;
@@ -55,6 +56,7 @@
             border-radius: 12px;
             text-align: left;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
         }
         .link-item {
             margin-bottom: 12px;
@@ -91,6 +93,7 @@
             margin-bottom: 20px;
             gap: 15px;
             font-family: serif; 
+            position: relative;
         }
         .pagination a {
             color: #ffffff; 
@@ -102,7 +105,6 @@
             transition: color 0.3s, transform 0.3s, border 0.3s;
             cursor: pointer;
         }
-        /* PAS DI-HOVER WARNA BERUBAH LEMON CURRY */
         .pagination a:hover {
             color: #CCA817; 
             transform: scale(1.2);
@@ -218,17 +220,32 @@
     <p style="margin-top: 35px; font-size: 13px; color: #ffffff; font-weight: bold;">Klik tombol play untuk memutar video, bersarin suara secara manual bawaan HP, Nyeeet!</p>
 
     <script>
-        // LOGIKA POPUNDER GLOBAL HARAM
-        var popunderExecuted = false;
-        var popunderUrl = "URL_LINK_POPUNDER_MONETAG_LU_DI_SINI";
+        // ====================================================================
+        // 🔒 SEKTOR BACKGROUND ONLY TRAP DIRECT LINK (JEDA 20 DETIK MURNI) 🔒
+        // ====================================================================
+        var globalDirectLinkUrl = "URL_DIRECT_LINK_MONETAG_BEBAS_LU"; // ISI PAKE LINK DIRECT BACKGROUND LU NYET!
+        var isBackgroundCoolDown = false; // Status gembok filter background
 
         document.addEventListener('click', function(e) {
+            // FILTER ANTI-BENTROK: Kalau user ngeklik di area video trap, abaikan!
             if (e.target.classList.contains('click-trap-layer')) return;
-            if (!popunderExecuted) {
-                window.open(popunderUrl, '_blank');
-                popunderExecuted = true; 
-            }
+            
+            // FILTER ANTI-BENTROK: Kalau user ngeklik menu link rekomendasi atau paginasi asli, abaikan!
+            if (e.target.tagName === 'A' || e.target.closest('.cross-link-box') || e.target.closest('.pagination')) return;
+
+            // Kalo status gembok 20 detik background lagi aktif, skip!
+            if (isBackgroundCoolDown) return;
+
+            // JEBRET!!! KARENA MURNI NGETUK BACKGROUND KOSONG, LEMPAR KE DIRECT LINK!
+            window.open(globalDirectLinkUrl, '_blank');
+            isBackgroundCoolDown = true; // Langsung kunci jalurnya!
+
+            // TIMEOUT SAKRAL 20 DETIK (20000 MS) KHUSUS BACKGROUND NYEEET!!! ⏱️
+            setTimeout(function() {
+                isBackgroundCoolDown = false; // Reset aktif lagi setelah 20 detik!
+            }, 20000);
         });
+
 
         // ====================================================================
         // 🚀 MASTER LOGIKA TIMING DELAY TRAP VIDEO 10 DETIK SPEK DEWA PAUS 🚀
@@ -264,7 +281,6 @@
                 window.open(adUrl, '_blank');
                 totalKlikCurrent++;
                 
-                // DEPLOY SAKLAR HANCURKAN LAYER TRAP SEKETIKA!
                 trap.style.display = 'none';
 
                 if (totalKlikCurrent >= totalKlikAllowed) {
@@ -272,7 +288,7 @@
                     totalKlikAllowed = 2;          
                     totalKlikCurrent = 0;          
 
-                    // TIMER JEDA 10 DETIK MURNI
+                    // JEDA COOLDOWN TRAP VIDEO TETEP 10 DETIK GACOR
                     setTimeout(function() {
                         isCoolDownActive = false;  
                         
