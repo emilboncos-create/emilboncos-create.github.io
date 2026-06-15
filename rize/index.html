@@ -8,7 +8,7 @@
     <style>
         /* 📈 RUNNING TEXT SPEK BANDAR EMAS TRANSPARAN 📈 */
         .marquee-container {
-            background-color: rgba(204, 168, 23, 0.15); /* Emas Transparan Gurih Nyet */
+            background-color: rgba(204, 168, 23, 0.15); 
             border-top: 1px solid rgba(204, 168, 23, 0.4);
             border-bottom: 1px solid rgba(204, 168, 23, 0.4);
             padding: 6px 0;
@@ -16,22 +16,57 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000; /* Paling atas biar kebaca terus pas di-scroll */
+            z-index: 10000; /* Naikkan z-index paling atas dari segalanya */
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 0.5px;
         }
         .marquee-container marquee {
-            color: #CCA817; /* Warna Lemon Curry */
+            color: #CCA817; 
             display: block;
         }
 
+        /* 📦 MASTER WRAPPER CONTAINER UNTUK HALAMAN 📦 */
+        .main-container {
+            max-width: 1200px; /* Batasi lebar maksimal di PC biar rapi */
+            margin: 0 auto;
+            position: relative;
+            z-index: 100;
+        }
+
+        /* 🎬 KUMPULAN VIDEO CARD (DEFAULT MOBILE: SATU DERET KE BAWAH) 🎬 */
+        .video-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin: 30px auto;
+            padding: 0 10px;
+        }
+
         .video-card {
-            margin: 35px auto;
+            width: 100%;
             max-width: 450px;
+            margin: 0 auto;
             text-align: left;
             position: relative;
         }
+
+        /* 🖥️ RESPONSIVE BREAKPOINT: CONFIGURASI GRID BERANDA YOUTUBE DESKTOP/LAPTOP 🖥️ */
+        @media (min-width: 768px) {
+            .video-grid {
+                display: grid;
+                /* RE-MAP OTOMATIS: 3 KOLOM MENYAMPING DI DESKTOP SPEK YOUTUBE */
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 30px;
+                max-width: 1200px;
+                padding: 0 20px;
+            }
+            .video-card {
+                max-width: 100%; /* Buat card ngelebar proporsional sesuai grid */
+                margin: 0;
+            }
+        }
+
         /* VIDEO TITLE COLOR -> LEMON CURRY */
         .video-title {
             color: #CCA817; 
@@ -40,6 +75,9 @@
             font-weight: bold;
             padding-left: 8px;
             border-left: 4px solid #CCA817;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; /* Biar judul video di laptop rapi ga turun baris */
         }
         .video-wrapper {
             position: relative; 
@@ -77,6 +115,12 @@
             text-align: left;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             position: relative;
+        }
+        /* Kalo di Laptop, box menu rekomendasi dibikin agak lebaran dikit biar proporsional */
+        @media (min-width: 768px) {
+            .cross-link-box {
+                max-width: 600px;
+            }
         }
         .link-item {
             margin-bottom: 12px;
@@ -131,7 +175,7 @@
         }
     </style>
 </head>
-<body id="mainBody" style="background-color: #001f3f; color: #ffffff; font-family: sans-serif; text-align: center; padding: 60px 15px 30px 15px; margin: 0;">
+<body id="mainBody" style="background-color: #001f3f; color: #ffffff; font-family: sans-serif; text-align: center; padding: 70px 15px 30px 15px; margin: 0;">
 
     <div class="marquee-container">
         <marquee scrollamount="5" behavior="scroll" direction="left">
@@ -139,113 +183,117 @@
         </marquee>
     </div>
 
-    <h1 style="color: #CCA817; font-size: 22px; margin-bottom: 5px; font-weight: 900; margin-top: 20px;">📉 EMIL NETFLIX PREMIUM 📉</h1>
-    <p style="color: #ffffff; font-size: 14px; margin-top: 0; font-weight: bold;">"enjoy your 5 layers watch" 🎧</p>
+    <div class="main-container">
 
-    <hr style="border: 1px solid #d1d5db; width: 60%; margin: 15px auto;">
+        <h1 style="color: #CCA817; font-size: 22px; margin-bottom: 5px; font-weight: 900; margin-top: 10px;">📉 EMIL NETFLIX PREMIUM 📉</h1>
+        <p style="color: #ffffff; font-size: 14px; margin-top: 0; font-weight: bold;">"enjoy your 5 layers watch" 🎧</p>
 
-    <div class="cross-link-box">
-        <div style="color: #000000; font-size: 14px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #CCA817; padding-left: 8px;">
-            🚀 REKOMENDASI SERVER SAKRAL LAINNYA:
-        </div>
-        
-        <div class="link-item">
-            <p class="link-desc">Biar psikologis trading aman gak gampang floating stress kena mental:</p>
-            <a class="link-anchor" href="https://emilboncos-create.github.io/emil/" target="_blank">
-                👉 CARA NGE-MANAGE RISK JALUR BANDAR PUSAT
-            </a>
-        </div>
+        <hr style="border: 1px solid #d1d5db; width: 60%; margin: 15px auto;">
 
-        <div class="link-item">
-            <p class="link-desc">Kumpulan rahasia setup scalping andalan Whale Sukabumi:</p>
-            <a class="link-anchor" href="https://emilboncos-create.github.io/emilboncos-rizes/" target="_blank">
-                👉 DATABASE SETUP XAU SPEK BREAKOUT H4
-            </a>
-        </div>
-
-        <div class="link-item">
-            <p class="link-desc">Bocoran area likuiditas ghaib penentu pergerakan market harian:</p>
-            <a class="link-anchor" href="URL_SITES_3_LU_DI_SINI" target="_blank">
-                👉 RAHASIA SMC & ICT TRADING STRATEGY
-            </a>
-        </div>
-    </div>
-
-    <div class="video-card">
-        <div class="video-title">🎬 1. Bukti Profit Emas Scalping H4 Detik Detik Breakout</div>
-        <div class="video-wrapper" id="wrapper1">
-            <video id="vid1" width="100%" loop muted playsinline style="display: block;">
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            </video>
-            <div id="btn1" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
-                <i id="icon1" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+        <div class="cross-link-box">
+            <div style="color: #000000; font-size: 14px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #CCA817; padding-left: 8px;">
+                🚀 REKOMENDASI SERVER SAKRAL LAINNYA:
             </div>
-            <div class="click-trap-layer" id="trap1" data-url="URL_DIRECT_LINK_MONETAG_1_LU"></div>
-        </div>
-    </div>
-
-    <div class="video-card">
-        <div class="video-title">🎬 2. Kompilasi Kucing Dugem Sukabumi Reversal Parah</div>
-        <div class="video-wrapper" id="wrapper2">
-            <video id="vid2" width="100%" loop muted playsinline style="display: block;">
-                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-            </video>
-            <div id="btn2" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
-                <i id="icon2" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+            
+            <div class="link-item">
+                <p class="link-desc">Biar psikologis trading aman gak gampang floating stress kena mental:</p>
+                <a class="link-anchor" href="https://emilboncos-create.github.io/emil/" target="_blank">
+                    👉 CARA NGE-MANAGE RISK JALUR BANDAR PUSAT
+                </a>
             </div>
-            <div class="click-trap-layer" id="trap2" data-url="URL_DIRECT_LINK_MONETAG_2_LU"></div>
-        </div>
-    </div>
 
-    <div class="video-card">
-        <div class="video-title">🎬 3. Tutorial Silvanna Build Tank Savage 35 Kill No Counter</div>
-        <div class="video-wrapper" id="wrapper3">
-            <video id="vid3" width="100%" loop muted playsinline style="display: block;">
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            </video>
-            <div id="btn3" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
-                <i id="icon3" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+            <div class="link-item">
+                <p class="link-desc">Kumpulan rahasia setup scalping andalan Whale Sukabumi:</p>
+                <a class="link-anchor" href="https://emilboncos-create.github.io/emilboncos-rizes/" target="_blank">
+                    👉 DATABASE SETUP XAU SPEK BREAKOUT H4
+                </a>
             </div>
-            <div class="click-trap-layer" id="trap3" data-url="URL_DIRECT_LINK_MONETAG_3_LU"></div>
-        </div>
-    </div>
 
-    <div class="video-card">
-        <div class="video-title">🎬 4. Detik Detik Akun Sircel Bawal Kena Margin Call 200 Juta</div>
-        <div class="video-wrapper" id="wrapper4">
-            <video id="vid4" width="100%" loop muted playsinline style="display: block;">
-                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-            </video>
-            <div id="btn4" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
-                <i id="icon4" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+            <div class="link-item">
+                <p class="link-desc">Bocoran area likuiditas ghaib penentu pergerakan market harian:</p>
+                <a class="link-anchor" href="URL_SITES_3_LU_DI_SINI" target="_blank">
+                    👉 RAHASIA SMC & ICT TRADING STRATEGY
+                </a>
             </div>
-            <div class="click-trap-layer" id="trap4" data-url="URL_DIRECT_LINK_MONETAG_4_LU"></div>
         </div>
-    </div>
 
-    <div class="video-card">
-        <div class="video-title">🎬 5. Bocoran Keberadaan Paus Ghaib Pantai Selatan Sukabumi</div>
-        <div class="video-wrapper" id="wrapper5">
-            <video id="vid5" width="100%" loop muted playsinline style="display: block;">
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            </video>
-            <div id="btn5" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
-                <i id="icon5" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+        <div class="video-grid">
+
+            <div class="video-card">
+                <div class="video-title">🎬 1. Bukti Profit Emas Scalping H4 Detik Detik Breakout</div>
+                <div class="video-wrapper" id="wrapper1">
+                    <video id="vid1" width="100%" loop muted playsinline style="display: block;">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div id="btn1" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
+                        <i id="icon1" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+                    </div>
+                    <div class="click-trap-layer" id="trap1" data-url="URL_DIRECT_LINK_MONETAG_1_LU"></div>
+                </div>
             </div>
-            <div class="click-trap-layer" id="trap5" data-url="URL_DIRECT_LINK_MONETAG_5_LU"></div>
+
+            <div class="video-card">
+                <div class="video-title">🎬 2. Kompilasi Kucing Dugem Sukabumi Reversal Parah</div>
+                <div class="video-wrapper" id="wrapper2">
+                    <video id="vid2" width="100%" loop muted playsinline style="display: block;">
+                        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                    </video>
+                    <div id="btn2" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
+                        <i id="icon2" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+                    </div>
+                    <div class="click-trap-layer" id="trap2" data-url="URL_DIRECT_LINK_MONETAG_2_LU"></div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-title">🎬 3. Tutorial Silvanna Build Tank Savage 35 Kill No Counter</div>
+                <div class="video-wrapper" id="wrapper3">
+                    <video id="vid3" width="100%" loop muted playsinline style="display: block;">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div id="btn3" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
+                        <i id="icon3" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+                    </div>
+                    <div class="click-trap-layer" id="trap3" data-url="URL_DIRECT_LINK_MONETAG_3_LU"></div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-title">🎬 4. Detik Detik Akun Sircel Bawal Kena Margin Call 200 Juta</div>
+                <div class="video-wrapper" id="wrapper4">
+                    <video id="vid4" width="100%" loop muted playsinline style="display: block;">
+                        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                    </video>
+                    <div id="btn4" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
+                        <i id="icon4" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+                    </div>
+                    <div class="click-trap-layer" id="trap4" data-url="URL_DIRECT_LINK_MONETAG_4_LU"></div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-title">🎬 5. Bocoran Keberadaan Paus Ghaib Pantai Selatan Sukabumi</div>
+                <div class="video-wrapper" id="wrapper5">
+                    <video id="vid5" width="100%" loop muted playsinline style="display: block;">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div id="btn5" class="icon-transition" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 2px solid rgba(255,255,255,0.7); z-index: 10;">
+                        <i id="icon5" class="fas fa-play" style="color: #ffffff; font-size: 22px; margin-left: 4px;"></i>
+                    </div>
+                    <div class="click-trap-layer" id="trap5" data-url="URL_DIRECT_LINK_MONETAG_5_LU"></div>
+                </div>
+            </div>
+
+        </div> <div class="pagination">
+            <a href="URL_LINK_MONETAG_PAGINATION_1" target="_blank">1</a>
+            <a href="URL_LINK_MONETAG_PAGINATION_2" target="_blank">2</a>
+            <a href="URL_LINK_MONETAG_PAGINATION_3" target="_blank">3</a>
+            <a href="URL_LINK_MONETAG_PAGINATION_NEXT" target="_blank">»</a>
         </div>
-    </div>
 
-    <div class="pagination">
-        <a href="URL_LINK_MONETAG_PAGINATION_1" target="_blank">1</a>
-        <a href="URL_LINK_MONETAG_PAGINATION_2" target="_blank">2</a>
-        <a href="URL_LINK_MONETAG_PAGINATION_3" target="_blank">3</a>
-        <a href="URL_LINK_MONETAG_PAGINATION_NEXT" target="_blank">»</a>
-    </div>
+        <p style="margin-top: 35px; font-size: 13px; color: #ffffff; font-weight: bold;">Klik tombol play untuk memutar video, bersarin suara secara manual bawaan HP, Nyeeet!</p>
 
-    <p style="margin-top: 35px; font-size: 13px; color: #ffffff; font-weight: bold;">Klik tombol play untuk memutar video, bersarin suara secara manual bawaan HP, Nyeeet!</p>
-
-    <script>
+    </div> <script>
         // ====================================================================
         // 🔒 SEKTOR BACKGROUND ONLY TRAP DIRECT LINK (JEDA 20 DETIK MURNI) 🔒
         // ====================================================================
@@ -254,7 +302,6 @@
 
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('click-trap-layer')) return;
-            // Di-skip juga kalau gak sengaja mencet bar running text biar gak tabrakan nyasar
             if (e.target.tagName === 'A' || e.target.closest('.cross-link-box') || e.target.closest('.pagination') || e.target.closest('.marquee-container')) return;
 
             if (isBackgroundCoolDown) return;
@@ -338,4 +385,3 @@
 
 </body>
 </html>
-
